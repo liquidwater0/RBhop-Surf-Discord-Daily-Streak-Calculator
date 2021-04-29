@@ -45,3 +45,27 @@ body * {
 #desiredStreakText, #streakStartDate {
   margin-bottom: 20px;
 }
+
+@media(max-width: 2015px) {
+  #content {
+    width: 25%;
+  }
+}
+
+@media(max-width: 1600px) {
+  #content {
+    width: 33%;
+  }
+}
+
+@media(max-width: 1250px) {
+  #content {
+    width: 50%;
+  }
+}
+
+@media(max-width: 650px) {
+  #content {
+    width: 100%;
+  }
+}
