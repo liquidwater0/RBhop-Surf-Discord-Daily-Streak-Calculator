@@ -42,6 +42,6 @@ body * {
   margin: 20px 0px;
 }
 
-#desiredStreakText {
+#desiredStreakText, #streakStartDate {
   margin-bottom: 20px;
 }
