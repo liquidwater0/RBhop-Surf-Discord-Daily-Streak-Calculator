@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Streak Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="Styles/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="Styles/style.css">
+  <script src="Scripts/dailyStreakCalculator.js" defer></script>
+</head>
+<body>
+  <div id="main">
+    <div class="z-depth-2" id="content">
+      <h4>Daily Streak Calculator</h4>
+      <p id="desiredStreakDate"></p>
+      <p id="streakStartDate"></p>
+      <div class="input-field"><label for="desiredStreakText">Desired Streak:</label><input type="text" id="desiredStreakText"></div>
+      <div class="input-field"><label for="currentStreakText">Your Current Streak:</label><input type="text" id="currentStreakText"></div>
+      <button class="waves-effect waves-light btn" id="calculateButton">Calculate</button>
+    </div>
+  </div>
+
+  <script src="Scripts/materialize.min.js"></script>
+</body>
+</html>
