@@ -1,6 +1,8 @@
 const desiredStreakText = document.getElementById("desiredStreakText");
 const currentStreakText = document.getElementById("currentStreakText");
 const calculateButton = document.getElementById("calculateButton");
+const yesRadio = document.getElementById("yesRadio");
+const noRadio = document.getElementById("noRadio");
 
 const desiredStreakDate = document.getElementById("desiredStreakDate");
 const streakStartDate = document.getElementById("streakStartDate");
@@ -12,10 +14,18 @@ calculateButton.addEventListener("click", calculateStreak);
 
 function calculateStreak() {
   const days = desiredStreakText.value - currentStreakText.value;
-  const dateMS = new Date().setDate(new Date().getDate() + days);
-  const date = new Date(dateMS);
+  let dateMS;
+  let startDateMS;
 
-  const startDateMS = new Date().setDate(new Date().getDate() - currentStreakText.value);
+  if (yesRadio.checked == true) {
+    dateMS = new Date().setDate(new Date().getDate() + days);
+    startDateMS = new Date().setDate(new Date().getDate() - currentStreakText.value);
+  } else if (noRadio.checked == true) {
+    dateMS = new Date().setDate(new Date().getDate() + days - 1);
+    startDateMS = new Date().setDate(new Date().getDate() - currentStreakText.value - 1);
+  }
+  
+  const date = new Date(dateMS);
   const startDate = new Date(startDateMS);
 
   let d;
