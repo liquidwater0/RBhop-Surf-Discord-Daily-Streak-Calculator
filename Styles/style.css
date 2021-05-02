@@ -38,6 +38,12 @@ body * {
   font-weight: bold;
 }
 
+#content form .radio {
+  width: 50%;
+  float: left;
+  margin: 20px 0px;
+}
+
 #streakDate {
   margin: 20px 0px;
 }
