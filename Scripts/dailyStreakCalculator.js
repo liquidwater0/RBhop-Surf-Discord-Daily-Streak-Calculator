@@ -6,6 +6,7 @@ const noRadio = document.getElementById("noRadio");
 
 const desiredStreakDate = document.getElementById("desiredStreakDate");
 const streakStartDate = document.getElementById("streakStartDate");
+const requiredText = document.getElementById("requiredText");
 
 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -56,6 +57,14 @@ function calculateStreak() {
     || startDate.getDate() == 28 || startDate.getDate() == 29 || startDate.getDate() == 30) {
     s = "th";
   }
-  desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}${d}, ${date.getFullYear()}`;
-  streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${startDate.getDate()}${s}, ${startDate.getFullYear()}`;
+
+  if (desiredStreakText.value == "" || currentStreakText.value == "" || yesRadio.checked == false && noRadio.checked == false) {
+    requiredText.textContent = "Please fill out all of the field.";
+    desiredStreakDate.textContent = "";
+    streakStartDate.textContent = "";
+  } else {
+    requiredText.textContent = "";
+    desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}${d}, ${date.getFullYear()}`;
+    streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${startDate.getDate()}${s}, ${startDate.getFullYear()}`;  
+  }
 }
