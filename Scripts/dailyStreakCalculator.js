@@ -59,7 +59,7 @@ function calculateStreak() {
   }
 
   if (desiredStreakText.value == "" || currentStreakText.value == "" || yesRadio.checked == false && noRadio.checked == false) {
-    requiredText.textContent = "Please fill out all of the field.";
+    requiredText.textContent = "Please fill out all of the fields.";
     desiredStreakDate.textContent = "";
     streakStartDate.textContent = "";
   } else {
