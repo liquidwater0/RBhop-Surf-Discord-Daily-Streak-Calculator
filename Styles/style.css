@@ -1,5 +1,6 @@
 :root {
   --darkMode: rgb(45, 45, 45);
+  --darkMode2: rgb(40, 40, 40);
 }
 
 * {
@@ -9,9 +10,13 @@
   font-family: Roboto, Arial;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   position: absolute;
-  background-color: var(--darkMode);
+  background-color: var(--darkMode2);
   width: 100%;
   height: 100%;
 }
@@ -28,6 +33,7 @@ body * {
 }
 
 #content {
+  background-color: var(--darkMode);
   padding: 25px;
   border-radius: 7px;
   width: 20%;
