@@ -48,8 +48,17 @@ body * {
   margin: 20px 0px;
 }
 
-#desiredStreakText, #streakStartDate, #timeRemainingText {
+#desiredStreakText, #streakStartDate {
   margin-bottom: 20px;
+}
+
+#timeRemainingText {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  width: 100%;
+  top: 20px;
+  text-align: center;
 }
 
 @media(max-width: 2015px) {
@@ -62,16 +71,28 @@ body * {
   #content {
     width: 33%;
   }
+
+  #timeRemainingText {
+    font-size: 35px;
+  }
 }
 
 @media(max-width: 1250px) {
   #content {
     width: 50%;
   }
+
+  #timeRemainingText {
+    font-size: 25px;
+  }
 }
 
 @media(max-width: 650px) {
   #content {
     width: 100%;
+  }
+
+  #timeRemainingText {
+    font-size: 20px;
   }
 }
