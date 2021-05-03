@@ -7,6 +7,7 @@ const noRadio = document.getElementById("noRadio");
 const desiredStreakDate = document.getElementById("desiredStreakDate");
 const streakStartDate = document.getElementById("streakStartDate");
 const requiredText = document.getElementById("requiredText");
+const timeRemainingText = document.getElementById("timeRemainingText");
 
 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -24,6 +25,38 @@ function numExtender(num) {
       return num.toString() + 'rd'
   }
   return num.toString() + 'th'
+}
+
+getTimeRemaining();
+
+function getTimeRemaining() {
+  Date.prototype.getOffsetDate = function(offset) {
+    utc = this.getTime() + (this.getTimezoneOffset() * 60000);
+    return new Date(utc + (3600000*offset));
+  }
+
+  const dailyReset = new Date().getOffsetDate(-5); //-5 Central
+  dailyReset.setHours(19, 0, 0); // 7pm CDT
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tick() {
+    const now = new Date;
+
+    if (now > dailyReset) { // too late, go to tomorrow
+      dailyReset.setDate(dailyReset.getDate() + 1);
+    }
+    const remain = ((dailyReset - now) / 1000);
+    const hh = pad((remain / 60 / 60) % 60);
+    const mm = pad((remain / 60) % 60);
+    const ss = pad(remain % 60);
+
+    timeRemainingText.textContent = `Daily resets in ${hh} hours ${mm} minutes ${ss} seconds`;
+    setTimeout(tick, 0);
+  }
+  tick();
 }
 
 function calculateStreak() {
