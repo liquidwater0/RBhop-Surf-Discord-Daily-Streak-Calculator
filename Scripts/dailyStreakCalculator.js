@@ -30,13 +30,9 @@ function numExtender(num) {
 getTimeRemaining();
 
 function getTimeRemaining() {
-  Date.prototype.getOffsetDate = function(offset) {
-    utc = this.getTime() + (this.getTimezoneOffset() * 60000);
-    return new Date(utc + (3600000*offset));
-  }
+  const dailyReset = new Date();
 
-  const dailyReset = new Date().getOffsetDate(-6); //-6 Central
-  dailyReset.setUTCHours(24, 0, 0); // 7pm (24)?
+  dailyReset.setUTCHours(24, 0, 0);
 
   function pad(num) {
     return ("0" + parseInt(num)).substr(-2);
