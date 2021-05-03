@@ -35,19 +35,20 @@ function getTimeRemaining() {
     return new Date(utc + (3600000*offset));
   }
 
-  const dailyReset = new Date().getOffsetDate(-5); //-5 Central
-  dailyReset.setHours(19, 0, 0); // 7pm CDT
+  const dailyReset = new Date().getOffsetDate(-6); //-6 Central
+  dailyReset.setUTCHours(24, 0, 0); // 7pm (24)?
 
   function pad(num) {
     return ("0" + parseInt(num)).substr(-2);
   }
 
   function tick() {
-    const now = new Date;
+    const now = new Date();
 
     if (now > dailyReset) { // too late, go to tomorrow
       dailyReset.setDate(dailyReset.getDate() + 1);
     }
+
     const remain = ((dailyReset - now) / 1000);
     const hh = pad((remain / 60 / 60) % 60);
     const mm = pad((remain / 60) % 60);
