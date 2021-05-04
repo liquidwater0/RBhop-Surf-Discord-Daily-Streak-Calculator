@@ -79,7 +79,7 @@ function calculateStreak() {
     requiredText.textContent = "Please fill out all of the fields.";
     desiredStreakDate.textContent = "";
     streakStartDate.textContent = "";
-    multiplier.textContent = "";
+    multiplierText.textContent = "";
   } else {
     requiredText.textContent = "";
     desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${numExtender(date.getDate())}, ${date.getFullYear()}`;
