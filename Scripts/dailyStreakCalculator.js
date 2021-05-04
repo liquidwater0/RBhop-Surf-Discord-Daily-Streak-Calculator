@@ -8,6 +8,7 @@ const desiredStreakDate = document.getElementById("desiredStreakDate");
 const streakStartDate = document.getElementById("streakStartDate");
 const requiredText = document.getElementById("requiredText");
 const timeRemainingText = document.getElementById("timeRemainingText");
+const multiplierText = document.getElementById("multiplier");
 
 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -61,6 +62,8 @@ function calculateStreak() {
   let dateMS;
   let startDateMS;
 
+  const multiplier = 0.015;
+
   if (yesRadio.checked == true) {
     dateMS = new Date().setDate(new Date().getDate() + days);
     startDateMS = new Date().setDate(new Date().getDate() - currentStreakText.value);
@@ -76,9 +79,11 @@ function calculateStreak() {
     requiredText.textContent = "Please fill out all of the fields.";
     desiredStreakDate.textContent = "";
     streakStartDate.textContent = "";
+    multiplier.textContent = "";
   } else {
     requiredText.textContent = "";
     desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${numExtender(date.getDate())}, ${date.getFullYear()}`;
-    streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`;  
+    streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`; 
+    multiplierText.textContent = `Multiplier: x${multiplier * desiredStreakText.value}`; 
   }
 }
