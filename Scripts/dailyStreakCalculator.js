@@ -62,7 +62,7 @@ function calculateStreak() {
   let dateMS;
   let startDateMS;
 
-  const multiplier = 0.015;
+  const multiplier = 1 + (desiredStreakText.value / 200);
 
   if (yesRadio.checked == true) {
     dateMS = new Date().setDate(new Date().getDate() + days);
@@ -84,6 +84,6 @@ function calculateStreak() {
     requiredText.textContent = "";
     desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${numExtender(date.getDate())}, ${date.getFullYear()}`;
     streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`; 
-    multiplierText.textContent = `Multiplier: x${multiplier * desiredStreakText.value}`; 
+    multiplierText.textContent = `Multiplier: x${multiplier}`; 
   }
 }
