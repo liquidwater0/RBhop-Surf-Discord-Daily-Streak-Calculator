@@ -67,6 +67,13 @@ body * {
   text-align: center;
 }
 
+#multiplier {
+  font-weight: bold;
+  color: lightgray;
+  text-align: left;
+  padding: 10px;
+}
+
 @media(max-width: 2015px) {
   #content {
     width: 25%;
