@@ -87,10 +87,15 @@ function calculateStreak() {
     desiredStreakDate.textContent = "";
     streakStartDate.textContent = "";
     multiplierText.textContent = "";
+  } else if (isNaN(desiredStreakText.value) || isNaN(currentStreakText.value)) {
+    requiredText.textContent = "Please enter a number.";
+    desiredStreakDate.textContent = "";
+    streakStartDate.textContent = "";
+    multiplierText.textContent = "";
   } else {
     requiredText.textContent = "";
     desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${numExtender(date.getDate())}, ${date.getFullYear()}`;
     streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`; 
-    multiplierText.textContent = `Multiplier: x${multiplier}`; 
+    multiplierText.textContent = `Multiplier: x${multiplier}`;
   }
 }
