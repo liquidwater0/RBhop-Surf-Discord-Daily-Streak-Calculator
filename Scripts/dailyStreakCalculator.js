@@ -14,6 +14,13 @@ const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 calculateButton.addEventListener("click", calculateStreak);
+document.querySelectorAll("input[type='text']").forEach(function(i) {
+  i.addEventListener("keydown", function(event) {
+    if (event.keyCode == 13) { //Enter Key (13)
+      calculateStreak();
+    }
+  });
+});
 
 function numExtender(num) {
   let r = num % 10
