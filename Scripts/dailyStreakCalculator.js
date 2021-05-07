@@ -3,12 +3,14 @@ const currentStreakText = document.getElementById("currentStreakText");
 const calculateButton = document.getElementById("calculateButton");
 const yesRadio = document.getElementById("yesRadio");
 const noRadio = document.getElementById("noRadio");
+const streakCalculations = document.getElementById("streakCalculations");
 
-const desiredStreakDate = document.getElementById("desiredStreakDate");
-const streakStartDate = document.getElementById("streakStartDate");
+const startDateText = document.getElementById("startDate");
+const expectedDateText = document.getElementById("expectedDate");
+const currentMultiplier = document.getElementById("currentMultiplier");
+const expectedMultiplier = document.getElementById("expectedMultiplier");
 const requiredText = document.getElementById("requiredText");
 const timeRemainingText = document.getElementById("timeRemainingText");
-const multiplierText = document.getElementById("multiplier");
 
 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -66,36 +68,32 @@ function getTimeRemaining() {
 
 function calculateStreak() {
   const days = desiredStreakText.value - currentStreakText.value;
-  let dateMS;
+  let expectedDateMS;
   let startDateMS;
 
-  const multiplier = 1 + (desiredStreakText.value / 200);
-
   if (yesRadio.checked == true) {
-    dateMS = new Date().setDate(new Date().getDate() + days);
+    expectedDateMS = new Date().setDate(new Date().getDate() + days);
     startDateMS = new Date().setDate(new Date().getDate() - currentStreakText.value);
   } else if (noRadio.checked == true) {
-    dateMS = new Date().setDate(new Date().getDate() + days - 1);
+    expectedDateMS = new Date().setDate(new Date().getDate() + days - 1);
     startDateMS = new Date().setDate(new Date().getDate() - currentStreakText.value - 1);
   }
   
-  const date = new Date(dateMS);
+  const expectedDate = new Date(expectedDateMS);
   const startDate = new Date(startDateMS);
 
   if (desiredStreakText.value == "" || currentStreakText.value == "" || yesRadio.checked == false && noRadio.checked == false) {
     requiredText.textContent = "Please fill out all of the fields.";
-    desiredStreakDate.textContent = "";
-    streakStartDate.textContent = "";
-    multiplierText.textContent = "";
+    streakCalculations.style.display = "none";
   } else if (isNaN(desiredStreakText.value) || isNaN(currentStreakText.value)) {
     requiredText.textContent = "Please enter a number.";
-    desiredStreakDate.textContent = "";
-    streakStartDate.textContent = "";
-    multiplierText.textContent = "";
+    streakCalculations.style.display = "none";
   } else {
+    streakCalculations.style.display = "grid";
     requiredText.textContent = "";
-    desiredStreakDate.textContent = `You will get your desired streak on ${weekDays[date.getDay()]}, ${months[date.getMonth()]} ${numExtender(date.getDate())}, ${date.getFullYear()}`;
-    streakStartDate.textContent = `You started this streak on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`; 
-    multiplierText.textContent = `Multiplier: x${multiplier}`;
+    startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`;
+    expectedDateText.textContent = `Expected on ${weekDays[expectedDate.getDay()]}, ${months[expectedDate.getMonth()]} ${numExtender(expectedDate.getDate())}, ${expectedDate.getFullYear()}`;
+    currentMultiplier.textContent = `Multiplier: x${1 + (currentStreakText.value / 200)}`;
+    expectedMultiplier.textContent = `Multiplier: x${1 + (desiredStreakText.value / 200)}`;
   }
 }
