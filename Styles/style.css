@@ -36,11 +36,11 @@ body * {
   background-color: var(--darkMode);
   padding: 25px;
   border-radius: 7px;
-  width: 20%;
+  width: 25%;
   text-align: center;
 }
 
-#content h4 {
+#content h4:first-child {
   font-weight: bold;
 }
 
@@ -50,11 +50,7 @@ body * {
   margin: 20px 0px;
 }
 
-#streakDate {
-  margin: 20px 0px;
-}
-
-#desiredStreakText, #streakStartDate {
+#desiredStreakText {
   margin-bottom: 20px;
 }
 
@@ -67,22 +63,35 @@ body * {
   text-align: center;
 }
 
-#multiplier {
-  font-weight: bold;
+#streakCalculations {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#streakCalculations * {
+  font-weight: 500;
   color: lightgray;
-  text-align: left;
   padding: 10px;
 }
 
-@media(max-width: 2015px) {
+#streakCalculations h6 {
+  color: white;
+  font-weight: bold;
+}
+
+#requiredText {
+  margin: 25px 0px;
+}
+
+@media(max-width: 2150px) {
   #content {
-    width: 25%;
+    width: 35%;
   }
 }
 
 @media(max-width: 1600px) {
   #content {
-    width: 33%;
+    width: 50%;
   }
 
   #timeRemainingText {
@@ -92,7 +101,7 @@ body * {
 
 @media(max-width: 1250px) {
   #content {
-    width: 50%;
+    width: 65%;
   }
 
   #timeRemainingText {
@@ -100,7 +109,7 @@ body * {
   }
 }
 
-@media(max-width: 650px) {
+@media(max-width: 700px) {
   #content {
     width: 100%;
   }
