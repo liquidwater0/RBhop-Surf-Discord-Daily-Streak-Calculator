@@ -13,11 +13,20 @@
   <div id="main">
     <div class="z-depth-2" id="content">
       <h4>Daily Streak Calculator</h4>
-      <p id="desiredStreakDate"></p>
-      <p id="streakStartDate"></p>
       <p id="requiredText"></p>
       <div>
-        <p id="multiplier"></p>
+        <div id="streakCalculations">
+          <div>
+            <h6>Current Streak</h6>
+            <p id="startDate"></p>
+            <p id="currentMultiplier"></p> 
+          </div>
+          <div>
+            <h6>Desired Streak</h6>
+            <p id="expectedDate"></p>
+            <p id="expectedMultiplier"></p>  
+          </div>
+        </div>
         <form>
           <div class="input-field"><label for="desiredStreakText">Desired Streak:</label><input type="text" id="desiredStreakText"></div>
           <div class="input-field"><label for="currentStreakText">Your Current Streak:</label><input type="text" id="currentStreakText"></div>
