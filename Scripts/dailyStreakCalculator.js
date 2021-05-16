@@ -82,6 +82,10 @@ function calculateStreak() {
   const expectedDate = new Date(expectedDateMS);
   const startDate = new Date(startDateMS);
 
+  const now = new Date();
+  const startDaysAgo = Math.round((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+  const expectedDaysLeft = Math.round((expectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+
   if (desiredStreakText.value == "" || currentStreakText.value == "" || yesRadio.checked == false && noRadio.checked == false) {
     requiredText.textContent = "Please fill out all of the fields.";
     streakCalculations.style.display = "none";
@@ -91,8 +95,8 @@ function calculateStreak() {
   } else {
     streakCalculations.style.display = "grid";
     requiredText.textContent = "";
-    startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()}`;
-    expectedDateText.textContent = `Expected on ${weekDays[expectedDate.getDay()]}, ${months[expectedDate.getMonth()]} ${numExtender(expectedDate.getDate())}, ${expectedDate.getFullYear()}`;
+    startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()} (${startDaysAgo} days ago)`;
+    expectedDateText.textContent = `Expected on ${weekDays[expectedDate.getDay()]}, ${months[expectedDate.getMonth()]} ${numExtender(expectedDate.getDate())}, ${expectedDate.getFullYear()} (${expectedDaysLeft} days left)`;
     currentMultiplier.textContent = `Multiplier: x${1 + (currentStreakText.value / 200)}`;
     expectedMultiplier.textContent = `Multiplier: x${1 + (desiredStreakText.value / 200)}`;
   }
