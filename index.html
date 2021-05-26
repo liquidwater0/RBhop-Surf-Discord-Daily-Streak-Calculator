@@ -4,43 +4,78 @@
   <title>Daily Streak Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="Styles/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="Styles/style.css">
-  <script src="Scripts/dailyStreakCalculator.js" defer></script>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="js/dailyStreakCalculator.js" defer></script>
 </head>
 <body>
-  <p id="timeRemainingText"></p>
+  <div id="timeRemainingText"></div>
   <div id="main">
-    <div class="z-depth-2" id="content">
-      <h4>Daily Streak Calculator</h4>
+    <div id="content">
+      <h1>Daily Streak Calculator</h1>
       <p id="requiredText"></p>
       <div>
         <div id="streakCalculations">
           <div>
-            <h6>Current Streak</h6>
+            <h3>Current Streak</h3>
             <p id="startDate"></p>
             <p id="currentMultiplier"></p> 
           </div>
           <div>
-            <h6>Desired Streak</h6>
+            <h3>Desired Streak</h3>
             <p id="expectedDate"></p>
             <p id="expectedMultiplier"></p>  
           </div>
         </div>
         <form>
-          <div class="input-field"><input type="text" id="desiredStreakText"><label for="desiredStreakText">Desired Streak:</label></div>
-          <div class="input-field"><input type="text" id="currentStreakText"><label for="currentStreakText">Your Current Streak:</label></div>
+          <div>
+            <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+              <span class="mdc-text-field__ripple"></span>
+              <span class="mdc-floating-label">Desired Streak:</span>
+              <input class="mdc-text-field__input" type="text" id="desiredStreakText">
+              <span class="mdc-line-ripple"></span>
+            </label>
+          </div>
+          <div>
+            <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+              <span class="mdc-text-field__ripple"></span>
+              <span class="mdc-floating-label">Your Current Streak:</span>
+              <input class="mdc-text-field__input" type="text" id="currentStreakText">
+              <span class="mdc-line-ripple"></span>
+            </label>
+          </div>
           <div>
             <p>Have you done daily yet today?</p>
-            <p class="radio"><label><input class="with-gap" type="radio" id="yesRadio" name="yes-no"><span>Yes</span></label></p>
-            <p class="radio"><label><input class="with-gap" type="radio" id="noRadio" name="yes-no"><span>No</span></label></p>
+            <div id="radios">
+              <div>
+                <div class="mdc-radio">
+                  <input class="mdc-radio__native-control" type="radio" id="yesRadio" name="yes-no">
+                  <div class="mdc-radio__background">
+                    <div class="mdc-radio__outer-circle"></div>
+                    <div class="mdc-radio__inner-circle"></div>
+                  </div>
+                  <div class="mdc-radio__ripple"></div>
+                </div>
+                <label for="yesRadio">Yes</label>
+              </div>
+              <div>
+                <div class="mdc-radio">
+                  <input class="mdc-radio__native-control" type="radio" id="noRadio" name="yes-no">
+                  <div class="mdc-radio__background">
+                    <div class="mdc-radio__outer-circle"></div>
+                    <div class="mdc-radio__inner-circle"></div>
+                  </div>
+                  <div class="mdc-radio__ripple"></div>
+                </div>
+                <label for="noRadio">No</label>
+              </div>
+            </div>
           </div>
         </form>
       </div>
-      <button class="waves-effect waves-light btn" id="calculateButton">Calculate</button>
+      <button class="mdc-button mdc-button--raised mdc-ripple-surface" id="calculateButton">Calculate</button>
     </div>
   </div>
-
-  <script src="Scripts/materialize.min.js"></script>
 </body>
 </html>
