@@ -1,0 +1,130 @@
+:root {
+  --darkMode: rgb(45, 45, 45);
+  --darkMode2: rgb(40, 40, 40);
+
+  --mdc-theme-primary: rgb(0, 160, 255);
+  --mdc-theme-secondary: var(--mdc-theme-primary);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: Roboto, Arial !important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: absolute;
+  background-color: var(--darkMode2);
+  width: 100%;
+  height: 100%;
+}
+
+.mdc-ripple-surface::before, .mdc-ripple-surface::after {
+  background-color: white;
+}
+
+.mdc-text-field input {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.mdc-text-field .mdc-floating-label  {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.mdc-text-field--focused .mdc-floating-label  {
+  color: var(--mdc-theme-primary) !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: rgba(150, 150, 150, 0.12);
+}
+
+.mdc-text-field {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.mdc-radio ~ label {
+  cursor: pointer;
+}
+
+.mdc-radio .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
+  border-color: rgba(255, 255, 255, 0.2)
+}
+
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#content {
+  background-color: var(--darkMode);
+  padding: 25px;
+  border-radius: 7px;
+  width: 35%;
+  text-align: center;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+#timeRemainingText {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  width: 100%;
+  top: 20px;
+  text-align: center;
+}
+
+#streakCalculations {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#streakCalculations * {
+  font-weight: 500;
+  color: lightgray;
+  padding: 10px;
+}
+
+#streakCalculations h3 {
+  color: white;
+  font-weight: bold;
+}
+
+#radios {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0px;
+}
+
+#requiredText {
+  margin: 25px 0px;
+}
+
+@media (max-width: 1500px) {
+  #content {
+    width: 50%;
+  }
+
+  #timeRemainingText {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  #content {
+    width: 100%;
+  }
+
+  #timeRemainingText {
+    font-size: 20px;
+  }
+}
