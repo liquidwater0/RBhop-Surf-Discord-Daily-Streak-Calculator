@@ -97,8 +97,8 @@ function calculateStreak() {
     requiredText.textContent = "";
     startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()} (${startDaysAgo} days ago)`;
     expectedDateText.textContent = `Expected on ${weekDays[expectedDate.getDay()]}, ${months[expectedDate.getMonth()]} ${numExtender(expectedDate.getDate())}, ${expectedDate.getFullYear()} (${expectedDaysLeft} days left)`;
-    currentMultiplier.textContent = `Multiplier: x${1 + (currentStreakText.value / 200)}`;
-    expectedMultiplier.textContent = `Multiplier: x${1 + (desiredStreakText.value / 200)}`;
+    currentMultiplier.textContent = `Multiplier: x${1 + (currentStreakText.value / 150)}`;
+    expectedMultiplier.textContent = `Multiplier: x${1 + (desiredStreakText.value / 150)}`;
   }
 }
 
