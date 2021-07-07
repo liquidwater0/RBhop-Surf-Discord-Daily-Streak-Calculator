@@ -1,81 +1,145 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Daily Streak Calculator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-  <script src="js/dailyStreakCalculator.js" defer></script>
-</head>
-<body>
-  <div id="timeRemainingText"></div>
-  <div id="main">
-    <div id="content">
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Streak Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="timeRemaining"></div>
+
+    <div class="z-depth-2" id="calculator">
       <h1>Daily Streak Calculator</h1>
-      <p id="requiredText"></p>
+
+      <div id="calculations">
+        <div>
+          <h3>Current Streak</h3>
+          <p id="startDate"></p>
+          <p id="currentMultiplier"></p>
+        </div>
+        
+        <div>
+          <h3 id="expectedHeading">Desired Streak</h3>
+          <p id="expectedDate"></p>
+          <p id="expectedMultiplier"></p>
+          <!-- <p id="expectedXP"></p> -->
+        </div>
+      </div>
+
+      <p id="info"></p>
+
+      <hr>
+
       <div>
-        <div id="streakCalculations">
+        <h3>Calculator:</h3>
+        <div id="calculatorSelector">
           <div>
-            <h3>Current Streak</h3>
-            <p id="startDate"></p>
-            <p id="currentMultiplier"></p> 
+            <div class="mdc-radio">
+              <input class="mdc-radio__native-control" type="radio" id="streakToDate" name="calculator" checked>
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+              <div class="mdc-radio__ripple"></div>
+            </div>
+            <label for="streakToDate">Streak To Date</label>
           </div>
           <div>
-            <h3>Desired Streak</h3>
-            <p id="expectedDate"></p>
-            <p id="expectedMultiplier"></p>  
+            <div class="mdc-radio">
+              <input class="mdc-radio__native-control" type="radio" id="dateToStreak" name="calculator">
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+              <div class="mdc-radio__ripple"></div>
+            </div>
+            <label for="dateToStreak">Date To Streak</label>
           </div>
         </div>
-        <form>
-          <div>
-            <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
-              <span class="mdc-text-field__ripple"></span>
-              <span class="mdc-floating-label">Desired Streak:</span>
-              <input class="mdc-text-field__input" type="text" id="desiredStreakText">
-              <span class="mdc-line-ripple"></span>
-            </label>
-          </div>
-          <div>
-            <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
-              <span class="mdc-text-field__ripple"></span>
-              <span class="mdc-floating-label">Your Current Streak:</span>
-              <input class="mdc-text-field__input" type="text" id="currentStreakText">
-              <span class="mdc-line-ripple"></span>
-            </label>
-          </div>
-          <div>
-            <p>Have you done daily yet today?</p>
-            <div id="radios">
-              <div>
-                <div class="mdc-radio">
-                  <input class="mdc-radio__native-control" type="radio" id="yesRadio" name="yes-no">
-                  <div class="mdc-radio__background">
-                    <div class="mdc-radio__outer-circle"></div>
-                    <div class="mdc-radio__inner-circle"></div>
-                  </div>
-                  <div class="mdc-radio__ripple"></div>
+      </div>
+
+      <hr>
+     
+      <form>
+        <div id="desiredStreakTextFieldDiv">
+          <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label">Desired Streak:</span>
+            <input class="mdc-text-field__input" type="text" id="desiredStreakTextField">
+            <span class="mdc-line-ripple"></span>
+          </label>
+        </div>
+
+        <div id="desiredDateInputDiv">
+          <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label">Desired Date:</span>
+            <input class="mdc-text-field__input" type="date" id="desiredDateInput">
+            <span class="mdc-line-ripple"></span>
+          </label>
+        </div>
+
+        <div>
+          <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label">Current Streak:</span>
+            <input class="mdc-text-field__input" type="text" id="currentStreakTextField">
+            <span class="mdc-line-ripple"></span>
+          </label>
+        </div>
+
+        <!-- <div>
+          <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label">Current Level:</span>
+            <input class="mdc-text-field__input" type="text" id="currentLevelTextField">
+            <span class="mdc-line-ripple"></span>
+          </label>
+        </div> -->
+
+        <hr>
+
+        <div>
+          <h3>Have you done daily yet today?</h3>
+          <div id="radios">
+            <div>
+              <div class="mdc-radio">
+                <input class="mdc-radio__native-control" type="radio" id="yesRadio" name="yes-no">
+                <div class="mdc-radio__background">
+                  <div class="mdc-radio__outer-circle"></div>
+                  <div class="mdc-radio__inner-circle"></div>
                 </div>
-                <label for="yesRadio">Yes</label>
+                <div class="mdc-radio__ripple"></div>
               </div>
-              <div>
-                <div class="mdc-radio">
-                  <input class="mdc-radio__native-control" type="radio" id="noRadio" name="yes-no">
-                  <div class="mdc-radio__background">
-                    <div class="mdc-radio__outer-circle"></div>
-                    <div class="mdc-radio__inner-circle"></div>
-                  </div>
-                  <div class="mdc-radio__ripple"></div>
+              <label for="yesRadio">Yes</label>
+            </div>
+            <div>
+              <div class="mdc-radio">
+                <input class="mdc-radio__native-control" type="radio" id="noRadio" name="yes-no">
+                <div class="mdc-radio__background">
+                  <div class="mdc-radio__outer-circle"></div>
+                  <div class="mdc-radio__inner-circle"></div>
                 </div>
-                <label for="noRadio">No</label>
+                <div class="mdc-radio__ripple"></div>
               </div>
+              <label for="noRadio">No</label>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
       <button class="mdc-button mdc-button--raised mdc-ripple-surface" id="calculateButton">Calculate</button>
     </div>
-  </div>
-</body>
+
+    <button id="themeChanger" title="Change Theme"><i class="material-icons">brightness_6</i></button>
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>
