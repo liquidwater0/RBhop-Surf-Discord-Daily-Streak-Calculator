@@ -119,7 +119,7 @@ export function calculator() {
 
             const desiredDateParts = desiredDateInput.value.split("-");
             let desiredDate = new Date(desiredDateParts[0], desiredDateParts[1] - 1, desiredDateParts[2]);
-            let desiredDateStreak = Math.abs((startDate.getTime() - desiredDate.getTime()) / (1000 * 3600 * 24)).toFixed(0);
+            let desiredDateStreak = Math.round(Math.abs((startDate.getTime() - desiredDate.getTime()) / (1000 * 3600 * 24) - 1));
 
             startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()} (${startDaysAgo} days ago)`;
             currentMultiplier.innerHTML = `<span>Multiplier:</span> x${(1 + (currentStreakTextField.value / 150)).toFixed(3)}`;
