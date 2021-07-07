@@ -1,28 +1,54 @@
 :root {
-  --darkMode: rgb(45, 45, 45);
-  --darkMode2: rgb(40, 40, 40);
-
   --mdc-theme-primary: rgb(0, 160, 255);
   --mdc-theme-secondary: var(--mdc-theme-primary);
+
+  --buttonHover: rgba(0, 160, 255, 0.75);
+}
+
+html[data-theme="dark"] {
+  --background: rgb(35, 35, 35);
+  --background2: rgb(45, 45, 45);
+
+  --textColor: white;
+  --textColor2: rgb(200, 200, 200);
+
+  --hrColor: rgba(255, 255, 255, 0.25);
+
+  --iconHover: rgb(200, 200, 200);
+
+  --textFieldTextColor: rgba(255, 255, 255, 0.75);
+  --textFieldLabelColor: rgba(255, 255, 255, 0.6);
+  --textFieldBackground: rgba(150, 150, 150, 0.12);
+
+  --radioColor: rgba(255, 255, 255, 0.2);
+}
+
+html[data-theme="light"] {
+  --background: rgb(220, 220, 220);
+  --background2: rgb(230, 230, 230);
+  
+  --textColor: black;
+  --textColor2: rgb(55, 55, 55);
+
+  --hrColor: rgba(0, 0, 0, 0.25);
+
+  --iconHover: rgb(70, 70, 70);
+
+  --textFieldTextColor: rgba(0, 0, 0, 0.75);
+  --textFieldLabelColor: rgba(0, 0, 0, 0.6);
+  --textFieldBackground: rgba(150, 150, 150, 0.12);
+
+  --radioColor: rgba(0, 0, 0, 0.75);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
-  font-family: Roboto, Arial !important;
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  position: absolute;
-  background-color: var(--darkMode2);
-  width: 100%;
-  height: 100%;
+*:not(.material-icons) {
+  font-family: 'Roboto', sans-serif;
 }
 
 .mdc-ripple-surface::before, .mdc-ripple-surface::after {
@@ -30,11 +56,11 @@ body {
 }
 
 .mdc-text-field input {
-  color: rgba(255, 255, 255, 0.87) !important;
+  color: var(--textFieldTextColor) !important;
 }
 
 .mdc-text-field .mdc-floating-label  {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: var(--textFieldLabelColor) !important;
 }
 
 .mdc-text-field--focused .mdc-floating-label  {
@@ -42,12 +68,12 @@ body {
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: rgba(150, 150, 150, 0.12);
+  background-color: var(--textFieldBackground) !important;
 }
 
 .mdc-text-field {
+  margin: 8px 0;
   width: 100%;
-  margin: 10px 0px;
 }
 
 .mdc-radio ~ label {
@@ -55,76 +81,131 @@ body {
 }
 
 .mdc-radio .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
-  border-color: rgba(255, 255, 255, 0.2)
+  border-color: var(--radioColor);
 }
 
-#main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#content {
-  background-color: var(--darkMode);
-  padding: 25px;
-  border-radius: 7px;
-  width: 35%;
-  text-align: center;
+.z-depth-2 {
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
 }
 
-#timeRemainingText {
+button {
+  cursor: pointer;
+  border: none;
+}
+
+hr {
+  border-color: var(--hrColor);
+  margin: 20px 0;
+}
+
+body {
   position: absolute;
-  font-size: 40px;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  top: 20px;
+  height: 100%;
+  background-color: var(--background);
+  color: var(--textColor);
+}
+
+#timeRemaining {
+  position: fixed;
+  top: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#calculator {
+  background-color: var(--background2);
+  width: 45%;
+  border-radius: 7px;
+  padding: 25px 50px;
   text-align: center;
 }
 
-#streakCalculations {
+#calculations {
   display: none;
-  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+  font-size: 16px;
+  text-align: center;
+  margin: 33px 20px 0 0;
 }
 
-#streakCalculations * {
-  font-weight: 500;
-  color: lightgray;
-  padding: 10px;
-}
-
-#streakCalculations h3 {
-  color: white;
+#calculations span {
   font-weight: bold;
 }
 
-#radios {
+#calculations p {
+  color: var(--textColor2);
+  font-weight: 450;
+  margin: 15px 0;
+}
+
+#info {
+  display: none;
+  margin: 45px 0;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 450;
+}
+
+#radios, #calculatorSelector {
   display: flex;
   justify-content: space-around;
-  margin: 15px 0px;
+  margin: 10px 0;
 }
 
-#requiredText {
-  margin: 25px 0px;
+#calculateButton {
+  font-weight: bold;
+  transition: background-color 0.25s;
 }
 
-@media (max-width: 1500px) {
-  #content {
-    width: 50%;
+#calculateButton:hover {
+  background-color: var(--buttonHover) !important;
+}
+
+#themeChanger {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--textColor);
+  transition: color 0.2s;
+}
+
+#themeChanger:hover {
+  color: var(--iconHover);
+}
+
+#themeChanger i {
+  font-size: 50px;
+}
+
+@media (max-width: 1000px) {
+  #timeRemaining {
+    font-size: 20px;
+    left: 20px;
+    top: calc(100% - 50px);
   }
 
-  #timeRemainingText {
-    font-size: 30px;
+  #timeRemaining span {
+    display: none;
   }
-}
 
-@media (max-width: 900px) {
-  #content {
+  #calculator {
     width: 100%;
   }
+}
 
-  #timeRemainingText {
+@media (max-height: 825px) {
+  #timeRemaining {
     font-size: 20px;
+    left: 20px;
+    top: calc(100% - 50px);
+  }
+
+  #timeRemaining span {
+    display: none;
   }
 }
