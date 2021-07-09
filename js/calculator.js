@@ -99,27 +99,29 @@ export function calculator() {
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
             const days = desiredStreakTextField.value - currentStreakTextField.value;
+            const desiredDateParts = desiredDateInput.value.split("-");
             let expectedDateMS;
             let startDateMS;
+            let desiredDateMS;
 
             if (yesRadio.checked) {
                 expectedDateMS = new Date().setDate(new Date().getDate() + days);
                 startDateMS = new Date().setDate(new Date().getDate() - currentStreakTextField.value);
+                desiredDateMS = new Date(desiredDateParts[0], desiredDateParts[1] - 1, desiredDateParts[2]).getTime();
             } else if (noRadio.checked) {
                 expectedDateMS = new Date().setDate(new Date().getDate() + days - 1);
                 startDateMS = new Date().setDate(new Date().getDate() - currentStreakTextField.value - 1);
+                desiredDateMS = new Date(desiredDateParts[0], desiredDateParts[1] - 1, desiredDateParts[2]).getTime() - 1;
             }
 
             const expectedDate = new Date(expectedDateMS);
             const startDate = new Date(startDateMS);
+            const desiredDate = new Date(desiredDateMS);
 
             const now = new Date();
             const startDaysAgo = Math.round((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
             const expectedDaysLeft = Math.round((expectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-
-            const desiredDateParts = desiredDateInput.value.split("-");
-            let desiredDate = new Date(desiredDateParts[0], desiredDateParts[1] - 1, desiredDateParts[2]);
-            let desiredDateStreak = Math.round((desiredDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+            const desiredDateStreak = Math.round((desiredDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
 
             startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()} (${startDaysAgo} days ago)`;
             currentMultiplier.innerHTML = `<span>Multiplier:</span> x${(1 + (currentStreakTextField.value / 150)).toFixed(3)}`;
