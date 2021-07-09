@@ -109,11 +109,22 @@ body {
   color: var(--textColor);
 }
 
-#timeRemaining {
+#timeRemainingSmall, 
+#timeRemainingLarge {
   position: fixed;
+  font-weight: bold;
+}
+
+#timeRemainingSmall {
+  display: none;
+  font-size: 20px;
+  left: 20px;
+  bottom: 20px;
+}
+
+#timeRemainingLarge {
   top: 25px;
   font-size: 35px;
-  font-weight: bold;
 }
 
 #calculator {
@@ -183,13 +194,11 @@ body {
 }
 
 @media (max-width: 1000px) {
-  #timeRemaining {
-    font-size: 20px;
-    left: 20px;
-    top: calc(100% - 50px);
+  #timeRemainingSmall {
+    display: block;
   }
 
-  #timeRemaining span {
+  #timeRemainingLarge {
     display: none;
   }
 
@@ -199,13 +208,11 @@ body {
 }
 
 @media (max-height: 825px) {
-  #timeRemaining {
-    font-size: 20px;
-    left: 20px;
-    top: calc(100% - 50px);
+  #timeRemainingSmall {
+    display: block;
   }
 
-  #timeRemaining span {
+  #timeRemainingLarge {
     display: none;
   }
 }
