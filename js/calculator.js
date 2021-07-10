@@ -31,7 +31,7 @@ export function calculator() {
     streakToDateRadio.addEventListener("input", changeCalculator);
     dateToStreakRadio.addEventListener("input", changeCalculator);
 
-    document.querySelectorAll("input[type='text']").forEach(function(input) {
+    document.querySelectorAll("input[type='text'], input[type='date']").forEach(function(input) {
         input.addEventListener("keydown", function(event) {
             if (event.keyCode == 13) calculate(); //Enter Key (13)
         });
