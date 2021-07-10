@@ -112,14 +112,14 @@ export function calculator() {
 
             const expectedDate = new Date(expectedDateMS);
             const startDate = new Date(startDateMS);
-
+        
             const now = new Date();
             const startDaysAgo = Math.round((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
             const expectedDaysLeft = Math.round((expectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
             const desiredDateParts = desiredDateInput.value.split("-");
-            const desiredDate = new Date(desiredDateParts[0], desiredDateParts[1] - 1, desiredDateParts[2]).getTime() - startDateMS;
-            const desiredDateStreak = Math.round(desiredDate / (1000 * 60 * 60 * 24) + 1);
+            const desiredDate = new Date(desiredDateParts[0], desiredDateParts[1] - 1, desiredDateParts[2]);
+            const desiredDateStreak = Math.ceil((desiredDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
 
             startDateText.textContent = `Started on ${weekDays[startDate.getDay()]}, ${months[startDate.getMonth()]} ${numExtender(startDate.getDate())}, ${startDate.getFullYear()} (${startDaysAgo} days ago)`;
             currentMultiplier.innerHTML = `<span>Multiplier:</span> x${(1 + (currentStreakTextField.value / 150)).toFixed(3)}`;
