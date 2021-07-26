@@ -13,61 +13,29 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div id="timeRemainingSmall"></div>
-    <div id="timeRemainingLarge"></div>
+    <div id="dsc">Daily Streak Calculator</div>
 
-    <div class="z-depth-2" id="calculator">
-      <h1>Daily Streak Calculator</h1>
-
-      <div id="calculations">
-        <div>
-          <h3>Current Streak</h3>
-          <p id="startDate"></p>
-          <p id="currentMultiplier"></p>
-        </div>
-        
-        <div>
-          <h3 id="expectedHeading">Desired Streak</h3>
-          <p id="expectedDate"></p>
-          <p id="expectedMultiplier"></p>
-          <!-- <p id="expectedXP"></p> -->
-        </div>
-      </div>
-
-      <p id="info"></p>
-
-      <hr>
-
+    <div id="calculations">
       <div>
-        <h3>Calculator:</h3>
-        <div id="calculatorSelector">
-          <div>
-            <div class="mdc-radio">
-              <input class="mdc-radio__native-control" type="radio" id="streakToDate" name="calculator" checked>
-              <div class="mdc-radio__background">
-                <div class="mdc-radio__outer-circle"></div>
-                <div class="mdc-radio__inner-circle"></div>
-              </div>
-              <div class="mdc-radio__ripple"></div>
-            </div>
-            <label for="streakToDate">Streak To Date</label>
-          </div>
-          <div>
-            <div class="mdc-radio">
-              <input class="mdc-radio__native-control" type="radio" id="dateToStreak" name="calculator">
-              <div class="mdc-radio__background">
-                <div class="mdc-radio__outer-circle"></div>
-                <div class="mdc-radio__inner-circle"></div>
-              </div>
-              <div class="mdc-radio__ripple"></div>
-            </div>
-            <label for="dateToStreak">Date To Streak</label>
-          </div>
-        </div>
+        <h4 class="section z-depth-2">Current Streak</h4>
+        <p id="startDateElement"></p>
+        <p id="currentMultiplierElement"></p>
       </div>
+      <div>
+        <h4 class="section z-depth-2" id="desiredHeading">Desired Streak</h4>
+        <p id="expectedElement"></p>
+        <p id="expectedMultiplierElement"></p>
+      </div>
+    </div>
+    
+    <div id="infoElement">Please enter a number!</div>
+    
+    <div id="calculatorChanger">
+      <p id="currentCalculatorElement"><span class="gray">Current Calculator:</span> Streak to Date</p>
+      <button class="mdc-button mdc-button--raised mdc-ripple-surface" id="changeCalculatorButton">Change Calculator</button>
+    </div>
 
-      <hr>
-     
+    <div>
       <form>
         <div id="desiredStreakTextFieldDiv">
           <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
@@ -95,50 +63,43 @@
             <span class="mdc-line-ripple"></span>
           </label>
         </div>
-
-        <!-- <div>
-          <label class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
-            <span class="mdc-text-field__ripple"></span>
-            <span class="mdc-floating-label">Current Level:</span>
-            <input class="mdc-text-field__input" type="text" id="currentLevelTextField">
-            <span class="mdc-line-ripple"></span>
-          </label>
-        </div> -->
-
-        <hr>
-
-        <div>
-          <h3>Have you done daily yet today?</h3>
-          <div id="radios">
-            <div>
-              <div class="mdc-radio">
-                <input class="mdc-radio__native-control" type="radio" id="yesRadio" name="yes-no">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
-              </div>
-              <label for="yesRadio">Yes</label>
-            </div>
-            <div>
-              <div class="mdc-radio">
-                <input class="mdc-radio__native-control" type="radio" id="noRadio" name="yes-no">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
-              </div>
-              <label for="noRadio">No</label>
-            </div>
-          </div>
-        </div>
       </form>
+
       <button class="mdc-button mdc-button--raised mdc-ripple-surface" id="calculateButton">Calculate</button>
     </div>
 
-    <button id="themeChanger" title="Change Theme"><i class="material-icons">brightness_6</i></button>
+    <div id="have">
+      <h5>Have you done daily yet today?</h5>
+
+      <div>
+        <div>
+          <div class="mdc-radio">
+            <input class="mdc-radio__native-control" type="radio" id="yesRadio" name="yes-no">
+            <div class="mdc-radio__background">
+              <div class="mdc-radio__outer-circle"></div>
+              <div class="mdc-radio__inner-circle"></div>
+            </div>
+            <div class="mdc-radio__ripple"></div>
+          </div>
+          <label for="yesRadio">Yes</label>
+        </div>
+
+        <div>
+          <div class="mdc-radio">
+            <input class="mdc-radio__native-control" type="radio" id="noRadio" name="yes-no">
+            <div class="mdc-radio__background">
+              <div class="mdc-radio__outer-circle"></div>
+              <div class="mdc-radio__inner-circle"></div>
+            </div>
+            <div class="mdc-radio__ripple"></div>
+          </div>
+          <label for="noRadio">No</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="timeRemaining">99h 99m 99s</div>
+    <button id="themeChanger" title="Change the theme"><i class="material-icons"></i></button>
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script type="module" src="js/main.js"></script>
