@@ -1,6 +1,5 @@
 export function timer() {
-    const timeRemainingSmall = document.getElementById("timeRemainingSmall");
-    const timeRemainingLarge = document.getElementById("timeRemainingLarge");
+    const timeRemaining = document.getElementById("timeRemaining");
 
     getTimeRemaining();
 
@@ -25,8 +24,7 @@ export function timer() {
             const mm = pad((remain / 60) % 60);
             const ss = pad(remain % 60);
 
-            timeRemainingSmall.textContent = `${hh}h ${mm}m ${ss}s`;
-            timeRemainingLarge.textContent = `Daily resets in ${hh} hours ${mm} minutes ${ss} seconds`;
+            timeRemaining.textContent = `${hh}h ${mm}m ${ss}s`;
 
             setTimeout(tick, 0);
         }
