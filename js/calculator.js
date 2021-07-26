@@ -1,12 +1,16 @@
 export function calculator() {
     const calculationsDiv = document.getElementById("calculations");
+    const desiredStreakCalculations = document.getElementById("desiredStreakCalculations");
+    const desiredDateCalculations = document.getElementById("desiredDateCalculations");
 
     const startDateElement = document.getElementById("startDateElement");
     const currentMultiplierElement = document.getElementById("currentMultiplierElement");
 
-    const desiredHeading = document.getElementById("desiredHeading");
-    const expectedElement = document.getElementById("expectedElement");
-    const expectedMultiplierElement = document.getElementById("expectedMultiplierElement");
+    const expectedOnElement = document.getElementById("expectedOnElement");
+    const dsMultiplierElement = document.getElementById("dsMultiplierElement");
+
+    const expectedStreakElement = document.getElementById("expectedStreakElement");
+    const ddMultiplierElement = document.getElementById("ddMultiplierElement");
 
     const infoElement = document.getElementById("infoElement");
 
@@ -46,14 +50,20 @@ export function calculator() {
 
     function updateCalculator() {
         if (streakToDate) {
-            desiredDateInputDiv.style.display = "none";
             desiredStreakTextFieldDiv.style.display = "block";
-            desiredHeading.textContent = "Desired Streak";
+            desiredDateInputDiv.style.display = "none";
+
+            desiredStreakCalculations.style.display = "block";
+            desiredDateCalculations.style.display = "none";
+
             currentCalculatorElement.innerHTML = "<span class='gray'>Current Calculator:</span> Streak to Date";
         } else {
             desiredStreakTextFieldDiv.style.display = "none";
             desiredDateInputDiv.style.display = "block";
-            desiredHeading.textContent = "Desired Date";
+
+            desiredStreakCalculations.style.display = "none";
+            desiredDateCalculations.style.display = "block";
+
             currentCalculatorElement.innerHTML = "<span class='gray'>Current Calculator:</span> Date to Streak";
         }
     }
@@ -136,13 +146,13 @@ export function calculator() {
             currentMultiplierElement.innerHTML = `<span class="gray">Multiplier:</span> x${(1 + (currentStreakTextField.value / 150)).toFixed(3)}`;
 
             if (streakToDate) {
-                expectedElement.innerHTML = `<span class="gray">Expected On:</span> ${weekDays[expectedDate.getDay()]}, ${months[expectedDate.getMonth()]} ${numExtender(expectedDate.getDate())}, 
+                expectedOnElement.innerHTML = `<span class="gray">Expected On:</span> ${weekDays[expectedDate.getDay()]}, ${months[expectedDate.getMonth()]} ${numExtender(expectedDate.getDate())}, 
                     ${expectedDate.getFullYear()} (${expectedDaysLeft} days left)`;
 
-                expectedMultiplierElement.innerHTML = `<span class="gray">Multiplier:</span> x${(1 + (desiredStreakTextField.value / 150)).toFixed(3)}`;
+                dsMultiplierElement.innerHTML = `<span class="gray">Multiplier:</span> x${(1 + (desiredStreakTextField.value / 150)).toFixed(3)}`;
             } else {
-                expectedElement.innerHTML = `<span class="gray">Expected Streak:</span> ${desiredDateStreak}`;
-                expectedMultiplierElement.innerHTML = `<span class="gray">Multiplier:</span> x${(1 + (desiredDateStreak / 150)).toFixed(3)}`;
+                expectedStreakElement.innerHTML = `<span class="gray">Expected Streak:</span> ${desiredDateStreak}`;
+                ddMultiplierElement.innerHTML = `<span class="gray">Multiplier:</span> x${(1 + (desiredDateStreak / 150)).toFixed(3)}`;
             }
         }
     }
