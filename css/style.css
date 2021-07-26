@@ -117,7 +117,7 @@ body {
 }
 
 #calculations {
-  display: none;
+  display: flex;
   justify-content: space-around;
   font-size: 20px;
   font-weight: 900;
