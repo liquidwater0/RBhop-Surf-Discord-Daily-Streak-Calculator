@@ -1,18 +1,16 @@
 :root {
-  --mdc-theme-primary: rgb(0, 160, 255);
+  --mdc-theme-primary: rgb(0, 151, 252);
   --mdc-theme-secondary: var(--mdc-theme-primary);
 
-  --buttonHover: rgba(0, 160, 255, 0.75);
+  --buttonHover: rgba(0, 151, 252, 0.75);
 }
 
 html[data-theme="dark"] {
-  --background: rgb(35, 35, 35);
-  --background2: rgb(45, 45, 45);
+  --background: rgb(50, 50, 50);
+  --background2: rgb(60, 60, 60);
 
   --textColor: white;
   --textColor2: rgb(200, 200, 200);
-
-  --hrColor: rgba(255, 255, 255, 0.25);
 
   --iconHover: rgb(200, 200, 200);
 
@@ -29,8 +27,6 @@ html[data-theme="light"] {
   
   --textColor: black;
   --textColor2: rgb(55, 55, 55);
-
-  --hrColor: rgba(0, 0, 0, 0.25);
 
   --iconHover: rgb(70, 70, 70);
 
@@ -73,7 +69,7 @@ html[data-theme="light"] {
 
 .mdc-text-field {
   margin: 8px 0;
-  width: 100%;
+  width: 50%;
 }
 
 .mdc-radio ~ label {
@@ -93,93 +89,115 @@ button {
   border: none;
 }
 
-hr {
-  border-color: var(--hrColor);
-  margin: 20px 0;
+button:not(#themeChanger) {
+  transition: background-color 0.2s;
+}
+
+button:not(#themeChanger):hover {
+  background-color: var(--buttonHover);
 }
 
 body {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
   background-color: var(--background);
   color: var(--textColor);
+  text-align: center;
 }
 
-#timeRemainingSmall, 
-#timeRemainingLarge {
-  position: fixed;
+.gray {
+  color: var(--textColor2);
   font-weight: bold;
 }
 
-#timeRemainingSmall {
-  display: none;
-  font-size: 20px;
-  left: 20px;
-  bottom: 20px;
-}
-
-#timeRemainingLarge {
-  top: 25px;
+#dsc {
   font-size: 35px;
-}
-
-#calculator {
-  background-color: var(--background2);
-  width: 45%;
-  border-radius: 7px;
-  padding: 25px 50px;
-  text-align: center;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 25px;
+  margin-bottom: 75px;
 }
 
 #calculations {
   display: none;
   justify-content: space-around;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#calculations .section {
+  background-color: var(--background2);
+  letter-spacing: 2px;
+  font-size: 25px;
+  font-weight: 900;
+  width: max-content;
+  transform: translateX(-50%);
+  margin-left: 50%;
   text-align: center;
-  margin: 33px 20px 0 0;
+  padding: 20px 25px;
+  border-radius: 50px;
 }
 
-#calculations span {
-  font-weight: bold;
+#calculations > div {
+  width: 100%;
 }
 
-#calculations p {
-  color: var(--textColor2);
-  font-weight: 450;
-  margin: 15px 0;
+#calculations > div * {
+  margin: 33px 0px;
 }
 
-#info {
+#infoElement {
   display: none;
-  margin: 45px 0;
-  text-align: center;
-  font-size: 19px;
-  font-weight: 450;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 150px 0px;
 }
 
-#radios, #calculatorSelector {
-  display: flex;
-  justify-content: space-around;
-  margin: 10px 0;
+#calculatorChanger {
+  margin: 25px 0px;
+}
+
+#currentCalculatorElement {
+  font-size: 19px;
+  font-weight: 900;
+  margin: 25px 0px;
 }
 
 #calculateButton {
-  font-weight: bold;
-  transition: background-color 0.25s;
+  margin: 25px 0px;
 }
 
-#calculateButton:hover {
-  background-color: var(--buttonHover) !important;
+#have {
+  width: max-content;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
+
+#have h5 {
+  font-size: 20px;
+  letter-spacing: 1.25px;
+  margin-bottom: 50px;
+}
+
+#have > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#timeRemaining {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 #themeChanger {
   position: fixed;
-  right: 25px;
   bottom: 25px;
+  right: 25px;
   background-color: rgba(0, 0, 0, 0);
   color: var(--textColor);
   transition: color 0.2s;
@@ -190,29 +208,24 @@ body {
 }
 
 #themeChanger i {
-  font-size: 50px;
+  font-size: 75px;
 }
 
 @media (max-width: 1000px) {
-  #timeRemainingSmall {
-    display: block;
+  .mdc-text-field {
+    width: 75%;
   }
 
-  #timeRemainingLarge {
-    display: none;
+  #dsc {
+    margin-bottom: 0px;
   }
 
-  #calculator {
-    width: 100%;
-  }
-}
-
-@media (max-height: 825px) {
-  #timeRemainingSmall {
-    display: block;
+  #calculations {
+    flex-direction: column;
+    align-items: center;
   }
 
-  #timeRemainingLarge {
-    display: none;
+  #have {
+    margin-bottom: 125px;
   }
 }
