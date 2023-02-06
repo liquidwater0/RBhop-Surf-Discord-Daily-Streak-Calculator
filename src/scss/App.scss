@@ -1,0 +1,165 @@
+@use "./theme" as *;
+@use "./buttons" as *;
+@use "./inputs" as *;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+body {
+    background-color: var(--theme-100);
+    color: var(--theme-text-color);
+    height: 100vh;
+}
+
+#root {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    height: 100%;
+}
+
+.container {
+    max-width: 1100px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.header {
+    text-align: center;
+    padding: 1rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .calculations-grid {
+        display: grid;
+        place-content: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calculations-section {
+        display: grid;
+        place-content: center;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .calculation-heading {
+        letter-spacing: 1.2px;
+    }
+
+    .calculations-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--theme-200);
+        font-weight: bold;
+        gap: 1rem;
+        padding: 2rem;
+        border-radius: 0.25rem;
+    }
+
+    .desired-date-input {
+        width: 250px; //find better way to do this please
+    }
+
+    .fire-icon {
+        color: var(--color-scheme-100);
+    }
+
+    .result {
+        font-size: 1.75rem;
+    }
+
+    .multiplier {
+        font-size: 1.25rem;
+        color: var(--theme-300);
+    }
+
+    .calculate-button {
+        margin-top: 5rem;
+    }
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    place-items: center;
+    padding: 1rem 2rem;
+
+    .time-remaining {
+        font-size: 1.75rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+    }
+    
+    .footer-toggles {
+        display: flex;
+        width: 100%;
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 860px) {
+    .time-remaining {
+        font-size: 1.25rem !important;
+    }
+
+    .footer-toggles {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .calculations-grid {
+        grid-template-columns: initial !important;
+        gap: 5rem;
+    }
+
+    .footer {
+        grid-template-columns: initial;
+        grid-template-areas: 
+            "footer-toggles"
+            "theme-changer"
+            "time-remaining";
+        gap: 2rem;
+        margin-top: 3rem;
+
+        .time-remaining {
+            grid-area: time-remaining;
+        }
+
+        .footer-toggles {
+            grid-area: footer-toggles;
+        }
+
+        .theme-changer {
+            grid-area: theme-changer;
+        }
+    }
+}
