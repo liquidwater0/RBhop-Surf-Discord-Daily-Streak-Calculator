@@ -29,13 +29,7 @@ function getDateObjectFromString(dateString: string) {
     }
 }
 
-export default function DateInput({ 
-    date,
-    className, 
-    onDateChange, 
-    onEnter, 
-    ...props 
-}: DateInputProps) {
+export default function DateInput({ date, className, onDateChange, onEnter, ...props }: DateInputProps) {
     const [dateObject, setDateObject] = useState(date);
     const [isValid, setIsValid] = useState<boolean>(true);
 
@@ -101,7 +95,7 @@ export default function DateInput({
                 ref={dateInput} 
                 defaultValue={getDateStringFromObject(dateObject!)}
                 onChange={({ target }) => {
-                    const { month, day, year } = getDateObjectFromString(target.value);;
+                    const { month, day, year } = getDateObjectFromString(target.value);
                     setDateObject({ month, day, year });
                 }}
             />
