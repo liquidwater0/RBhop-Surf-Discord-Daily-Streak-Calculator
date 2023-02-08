@@ -67,8 +67,8 @@ export default function CalculationsProvider({ children }: { children: ReactNode
         const difference = desiredDateObj.getTime() - startedDate.getTime();
         const newDesiredDateStreak = 
             haveYouDoneDaily ?
-            Math.floor((difference / MILLISECONDS_IN_A_DAY) + 1) :
-            Math.floor((difference / MILLISECONDS_IN_A_DAY) + 2);
+            Math.ceil((difference / MILLISECONDS_IN_A_DAY) + 1) :
+            Math.ceil((difference / MILLISECONDS_IN_A_DAY) + 2);
         
         setStartDate(startedDateFormatted);
         setDesiredStreakDate(expectedDateFormatted);
