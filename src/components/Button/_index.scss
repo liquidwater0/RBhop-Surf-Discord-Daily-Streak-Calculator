@@ -25,3 +25,16 @@
         background-color: darken($color-primary, 25%);
     }
 }
+
+.button.text {
+    background-color: transparent;
+    color: $color-primary;
+
+    &:hover {
+        background-color: hsla(0, 0%, 50%, 0.35);
+    }
+
+    &:active {
+        background-color: hsla(0, 0%, 50%, 0.40);
+    }
+}

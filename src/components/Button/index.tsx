@@ -1,13 +1,13 @@
 import type { HTMLAttributes } from 'react';
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-
+    buttonType?: "text"
 }
 
-export default function Button({ children, className, ...props }: ButtonProps) {
+export default function Button({ children, buttonType, className, ...props }: ButtonProps) {
     return (
         <button
-            className={`button ${className ? className : ""}`}
+            className={`button ${buttonType ? buttonType : ""} ${className ? className : ""}`}
             { ...props }
         >
             { children }
