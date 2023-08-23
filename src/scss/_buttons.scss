@@ -1,31 +1,5 @@
 @use "./colors" as *;
 
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    outline: none;
-    background-color: $color-primary;
-    color: $color-dark-1;
-    font-size: 20px;
-    font-weight: 900;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 0.25em;
-    padding: 0.5em 1.25em;
-    letter-spacing: 1.25px;
-    transition: background-color 200ms;
-
-    &:hover {
-        background-color: darken($color-primary, 20%);
-    }
-
-    &:active {
-        background-color: darken($color-primary, 25%);
-    }
-}
-
 .icon-button {
     background-color: transparent;
     color: $color-primary;

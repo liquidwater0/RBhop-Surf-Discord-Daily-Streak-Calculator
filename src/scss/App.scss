@@ -3,6 +3,7 @@
 @use "./buttons" as *;
 @use "./inputs" as *;
 
+@use "../components//Button" as *;
 @use "../components/Switch" as *;
 @use "../components/TimeRemaining" as *;
 
