@@ -1,21 +1,15 @@
-:root {
-    --color-scheme-100: hsl(46, 100%, 50%);
-    --color-scheme-200: hsl(46, 100%, 33%);
-    --color-scheme-300: hsl(46, 100%, 25%);
-}
+@use "./colors" as *;
 
 html[data-theme="dark"] {
-    --theme-100: hsl(0, 0%, 15%);
-    --theme-200: hsl(0, 0%, 20%);
-    --theme-300: hsl(0, 0%, 50%);
-
-    --theme-text-color: white;
+    --theme-100: #{$color-dark-1};
+    --theme-200: #{$color-dark-2};
+    --theme-inverted-100: #{$color-light-1};
+    --theme-inverted-200: #{$color-light-2};
 }
 
 html[data-theme="light"] {
-    --theme-100: hsl(0, 0%, 100%);
-    --theme-200: hsl(0, 0%, 95%);
-    --theme-300: hsl(0, 0%, 50%);
-
-    --theme-text-color: black;
+    --theme-100: #{$color-light-1};
+    --theme-200: #{$color-light-2};
+    --theme-inverted-100: #{$color-dark-1};
+    --theme-inverted-200: #{$color-dark-2};
 }

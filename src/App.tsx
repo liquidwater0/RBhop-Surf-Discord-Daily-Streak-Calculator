@@ -10,6 +10,8 @@ import TimeRemaining from "./components/TimeRemaining";
 import NumberInput from "./components/Inputs/NumberInput";
 import DateInput from "./components/Inputs/DateInput";
 
+import Switch from "./components/Switch/Switch";
+
 /*
 	TODO:
 	Make favorite streaks sidebar thing
@@ -38,6 +40,13 @@ function App() {
 		<>
 			<header className="header">
 				<h1>Daily Streak Calculator</h1>
+
+				{/* <Switch
+					checkedIcon={<Brightness4 />}
+					uncheckedIcon={<Brightness7 />}
+					defaultChecked={theme === "dark"}
+					onChange={() => toggleTheme()}
+				/> */}
 			</header>
 
 			<main className="main">

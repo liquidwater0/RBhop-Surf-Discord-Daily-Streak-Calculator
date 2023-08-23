@@ -1,11 +1,13 @@
+@use "./colors" as *;
+
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     outline: none;
-    background-color: var(--color-scheme-100);
-    color: white;
+    background-color: $color-primary;
+    color: $color-dark-1;
     font-size: 20px;
     font-weight: 900;
     text-transform: uppercase;
@@ -16,17 +18,17 @@
     transition: background-color 200ms;
 
     &:hover {
-        background-color: var(--color-scheme-200);
+        background-color: darken($color-primary, 20%);
     }
 
     &:active {
-        background-color: var(--color-scheme-300);
+        background-color: darken($color-primary, 25%);
     }
 }
 
 .icon-button {
     background-color: transparent;
-    color: var(--color-scheme-100);
+    color: $color-primary;
     border-radius: 1000px;
     width: 2.5em;
     height: 2.5em;
@@ -34,5 +36,5 @@
 
 .text-button {
     background-color: transparent;
-    color: var(--color-scheme-100);
+    color: $color-primary;
 }
