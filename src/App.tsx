@@ -10,12 +10,6 @@ import NumberInput from "./components/Inputs/NumberInput";
 import DateInput from "./components/Inputs/DateInput";
 import Switch from "./components/Switch";
 
-/*
-	TODO:
-	Make favorite streaks sidebar thing
-	Make custom calendar date picker for date input??
-*/
-
 function App() {
 	const { theme, toggleTheme } = useTheme();
 	const { 
