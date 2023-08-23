@@ -10,7 +10,7 @@ import TimeRemaining from "./components/TimeRemaining";
 import NumberInput from "./components/Inputs/NumberInput";
 import DateInput from "./components/Inputs/DateInput";
 
-import Switch from "./components/Switch/Switch";
+// import Switch from "./components/Switch/Switch";
 
 /*
 	TODO:
