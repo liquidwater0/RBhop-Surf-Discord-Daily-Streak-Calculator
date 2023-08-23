@@ -5,7 +5,7 @@ import { useCalculations } from "./context/CalculationsContent";
 import Button from "./components/Button";
 import TimeRemaining from "./components/TimeRemaining";
 import NumberInput from "./components/Inputs/NumberInput";
-import DateInput from "./components/Inputs/DateInput";
+import DateInput from "./components/DateInput";
 import Switch from "./components/Switch";
 
 function App() {

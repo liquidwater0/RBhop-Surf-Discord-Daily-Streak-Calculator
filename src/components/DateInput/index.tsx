@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState, HTMLAttributes, DetailedHTMLProps, InputHTMLAttributes } from "react";
+import type { HTMLAttributes, DetailedHTMLProps, InputHTMLAttributes } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Event } from "@mui/icons-material";
 
-type DateInputProps = {
+interface DateInputProps extends HTMLAttributes<HTMLDivElement> {
     date?: { month: number, day: number, year: number },
-    className?: string,
     onDateChange?: (value?: string) => void,
-    onEnter?: () => void,
-} & HTMLAttributes<HTMLDivElement>
+    onEnter?: () => void
+}
 
 function getDateStringFromObject(dateObject: { month: number, day: number, year: number }) {
     if (!dateObject || !dateObject?.month || !dateObject?.day || !dateObject?.year) return;
