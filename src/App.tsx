@@ -89,8 +89,6 @@ function App() {
 				>
 					<Calculate/> Calculate
 				</Button>
-
-				<Button buttonType="text">Yes</Button>
 			</main>
 
 			<footer className="footer">
@@ -100,7 +98,7 @@ function App() {
 					<div>
 						<p>Have You Done #!daily Today?</p>
 						{/* <ToggleButton onToggle={value => setHaveYouDoneDaily(value)}/> */}
-						
+
 					</div>
 					<div>
 						<p>{ currentCalculator === "streakToDate" ? "Streak To Date" : "Date To Streak" }</p>
