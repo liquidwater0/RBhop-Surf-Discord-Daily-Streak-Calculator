@@ -3,14 +3,12 @@ import { Brightness4, Brightness7, Whatshot, Calculate } from "@mui/icons-materi
 import { useTheme } from "./context/ThemeContext";
 import { useCalculations } from "./context/CalculationsContent";
 import Button from "./components/Buttons/Button";
-import IconButton from "./components/Buttons/IconButton";
 import TextButton from "./components/Buttons/TextButton";
 import ToggleButton from "./components/Buttons/ToggleButton";
 import TimeRemaining from "./components/TimeRemaining";
 import NumberInput from "./components/Inputs/NumberInput";
 import DateInput from "./components/Inputs/DateInput";
-
-// import Switch from "./components/Switch/Switch";
+import Switch from "./components/Switch";
 
 /*
 	TODO:
@@ -40,13 +38,6 @@ function App() {
 		<>
 			<header className="header">
 				<h1>Daily Streak Calculator</h1>
-
-				{/* <Switch
-					checkedIcon={<Brightness4 />}
-					uncheckedIcon={<Brightness7 />}
-					defaultChecked={theme === "dark"}
-					onChange={() => toggleTheme()}
-				/> */}
 			</header>
 
 			<main className="main">
@@ -128,12 +119,12 @@ function App() {
 					</div>
 				</div>
 				
-				<IconButton 
-					className="theme-changer"
-					onClick={() => toggleTheme()}
-				>
-					{ theme === "dark" ? <Brightness4/> : <Brightness7/> }
-				</IconButton>
+				<Switch
+					checkedIcon={<Brightness4 />}
+					uncheckedIcon={<Brightness7 />}
+					defaultChecked={theme === "dark"}
+					onChange={() => toggleTheme()}
+				/>
 			</footer>
     	</>
   	);
