@@ -4,7 +4,7 @@ import { useTheme } from "./context/ThemeContext";
 import { useCalculations } from "./context/CalculationsContent";
 import Button from "./components/Button";
 import TimeRemaining from "./components/TimeRemaining";
-import NumberInput from "./components/Inputs/NumberInput";
+import Input from "./components/Input";
 import DateInput from "./components/DateInput";
 import Switch from "./components/Switch";
 
@@ -42,7 +42,8 @@ function App() {
 							<div className="multiplier">{ currentStreakMultiplier }</div>
 						</div>
 
-						<NumberInput
+						<Input
+							type="number"
 							placeholder="Current Streak"
 							onChange={({ target }) => setCurrentStreak(Number((target as HTMLInputElement).value))}
 							onEnter={() => calculate()}
@@ -57,7 +58,8 @@ function App() {
 							<div className="multiplier">{ desiredStreakMulitplier }</div>
 						</div>
 
-						<NumberInput 
+						<Input
+							type="number"
 							placeholder="Desired Streak"
 							onChange={({ target }) => setDesiredStreak(Number((target as HTMLInputElement).value))}
 							onEnter={() => calculate()}
