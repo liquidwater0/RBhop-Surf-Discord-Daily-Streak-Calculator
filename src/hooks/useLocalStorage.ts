@@ -1,12 +1,13 @@
+import type { Dispatch, SetStateAction } from "react";
 import { useState, useEffect } from "react";
 
-function getSavedValue(storageKey: string, initialValue: any) {
+function getSavedValue<T>(storageKey: string, initialValue: T) {
     const savedValue = localStorage.getItem(storageKey);
     if (!savedValue) return initialValue;
     return JSON.parse(savedValue);
 }
 
-export function useLocalStorage(storageKey: string, initialValue: any) {
+export function useLocalStorage<T>(storageKey: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
     const [value, setValue] = useState(() => getSavedValue(storageKey, initialValue));
 
     useEffect(() => {
