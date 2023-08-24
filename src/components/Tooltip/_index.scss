@@ -1,0 +1,22 @@
+.tooltip {
+    position: relative;
+
+    &::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        pointer-events: none;
+        padding: 0.5em 1em;
+        width: max-content;
+        scale: 0;
+        transform-origin: bottom;
+        border-radius: 0.25em;
+        right: 0;
+        bottom: 3rem;
+        background-color: var(--theme-200);
+        transition: scale 250ms;
+    }
+
+    &:hover::before {
+        scale: 1;
+    }
+}

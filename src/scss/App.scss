@@ -1,5 +1,6 @@
 @use "./colors" as *;
 @use "./theme" as *;
+@use "../components/Tooltip/" as *;
 @use "../components/Input" as *;
 @use "../components/Button" as *;
 @use "../components/Switch" as *;

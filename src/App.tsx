@@ -4,6 +4,7 @@ import { useTheme } from "./context/ThemeContext";
 import { useCalculations } from "./context/CalculationsContent";
 import { Button } from "./components/Button";
 import { Input, DateInput } from "./components/Input";
+import Tooltip from "./components/Tooltip";
 import Switch from "./components/Switch";
 import TogglesMenu from "./components/TogglesMenu";
 import TimeRemaining from "./components/TimeRemaining";
@@ -95,12 +96,14 @@ function App() {
 				<TogglesMenu />
 				<TimeRemaining />
 
-				<Switch
-					checkedIcon={<Brightness4 />}
-					uncheckedIcon={<Brightness7 />}
-					defaultChecked={theme === "dark"}
-					onChange={() => toggleTheme()}
-				/>
+				<Tooltip text="Theme Switch">
+					<Switch
+						checkedIcon={<Brightness4 />}
+						uncheckedIcon={<Brightness7 />}
+						defaultChecked={theme === "dark"}
+						onChange={() => toggleTheme()}
+					/>
+				</Tooltip>
 			</footer>
     	</>
   	);
