@@ -2,10 +2,11 @@ import "./scss/App.scss";
 import { Brightness4, Brightness7, Whatshot, Calculate } from "@mui/icons-material";
 import { useTheme } from "./context/ThemeContext";
 import { useCalculations } from "./context/CalculationsContent";
-import { Button, ToggleButton } from "./components/Button";
+import { Button } from "./components/Button";
 import { Input, DateInput } from "./components/Input";
-import TimeRemaining from "./components/TimeRemaining";
 import Switch from "./components/Switch";
+import TogglesMenu from "./components/TogglesMenu";
+import TimeRemaining from "./components/TimeRemaining";
 
 function App() {
 	const { theme, toggleTheme } = useTheme();
@@ -16,11 +17,8 @@ function App() {
 		desiredStreakMulitplier,
 		desiredDateMultiplier,
 		startDate, 
-		currentCalculator, 
-		haveYouDoneDaily,
+		currentCalculator,
 		calculate,
-		setHaveYouDoneDaily, 
-		setCurrentCalculator,
 		setCurrentStreak,
 		setDesiredStreak,
 		setDesiredDate
@@ -94,36 +92,8 @@ function App() {
 			</main>
 
 			<footer className="footer">
-				<TimeRemaining/>
-
-				<div className="footer-toggles">
-					<div>
-						<p>Have You Done #!daily Today?</p>
-						<ToggleButton
-							checked={haveYouDoneDaily}
-							onChange={() => setHaveYouDoneDaily(true)}
-						>
-							Yes
-						</ToggleButton>
-						<ToggleButton
-							checked={!haveYouDoneDaily}
-							onChange={() => setHaveYouDoneDaily(false)}
-						>
-							No
-						</ToggleButton>
-					</div>
-					<div>
-						<p>{ currentCalculator === "streakToDate" ? "Streak To Date" : "Date To Streak" }</p>
-						<Button
-							buttonType="text"
-							onClick={() => {
-								setCurrentCalculator(prev => prev === "streakToDate" ? "dateToStreak" : "streakToDate")
-							}}
-						>
-							Change Calculator
-						</Button>
-					</div>
-				</div>
+				<TogglesMenu />
+				<TimeRemaining />
 
 				<Switch
 					checkedIcon={<Brightness4 />}

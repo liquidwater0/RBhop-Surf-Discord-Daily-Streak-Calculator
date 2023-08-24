@@ -44,6 +44,6 @@
     color: $color-primary;
 
     &[data-toggled="true"] {
-        background-color: var(--theme-200);
+        background-color: darken($color-primary, 40%);
     }
 }
