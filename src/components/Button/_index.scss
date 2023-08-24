@@ -38,3 +38,12 @@
         background-color: hsla(0, 0%, 50%, 0.40);
     }
 }
+
+.button.toggle {
+    background-color: transparent;
+    color: $color-primary;
+
+    &[data-toggled="true"] {
+        background-color: var(--theme-200);
+    }
+}

@@ -1,16 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import Button from "./Button";
+import ToggleButton from "./ToggleButton";
 
-interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-    buttonType?: "text"
-}
-
-export default function Button({ children, buttonType, className, ...props }: ButtonProps) {
-    return (
-        <button
-            className={`button ${buttonType ? buttonType : ""} ${className ? className : ""}`}
-            { ...props }
-        >
-            { children }
-        </button>
-    );
-}
+export { Button, ToggleButton };

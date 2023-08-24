@@ -2,10 +2,9 @@ import "./scss/App.scss";
 import { Brightness4, Brightness7, Whatshot, Calculate } from "@mui/icons-material";
 import { useTheme } from "./context/ThemeContext";
 import { useCalculations } from "./context/CalculationsContent";
-import Button from "./components/Button";
+import { Button, ToggleButton } from "./components/Button";
+import { Input, DateInput } from "./components/Input";
 import TimeRemaining from "./components/TimeRemaining";
-import Input from "./components/Input";
-import DateInput from "./components/DateInput";
 import Switch from "./components/Switch";
 
 function App() {
@@ -18,6 +17,7 @@ function App() {
 		desiredDateMultiplier,
 		startDate, 
 		currentCalculator, 
+		haveYouDoneDaily,
 		calculate,
 		setHaveYouDoneDaily, 
 		setCurrentCalculator,
@@ -99,8 +99,18 @@ function App() {
 				<div className="footer-toggles">
 					<div>
 						<p>Have You Done #!daily Today?</p>
-						{/* <ToggleButton onToggle={value => setHaveYouDoneDaily(value)}/> */}
-
+						<ToggleButton
+							checked={haveYouDoneDaily}
+							onChange={() => setHaveYouDoneDaily(true)}
+						>
+							Yes
+						</ToggleButton>
+						<ToggleButton
+							checked={!haveYouDoneDaily}
+							onChange={() => setHaveYouDoneDaily(false)}
+						>
+							No
+						</ToggleButton>
 					</div>
 					<div>
 						<p>{ currentCalculator === "streakToDate" ? "Streak To Date" : "Date To Streak" }</p>
