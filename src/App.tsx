@@ -124,7 +124,7 @@ function App() {
 						</Button>
 					</div>
 				</div>
-				
+
 				<Switch
 					checkedIcon={<Brightness4 />}
 					uncheckedIcon={<Brightness7 />}

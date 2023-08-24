@@ -26,11 +26,12 @@ export default function Switch({ checkedIcon, uncheckedIcon, className, ...props
                 id={id}
                 { ...props }
             />
-            
+
             <button 
                 className={`switch ${className ? className : ""}`}
                 data-checked={checkboxChecked} 
                 role="switch"
+                aria-label='switch'
                 aria-checked={checkboxChecked}
                 aria-controls={id}
                 onClick={handleClick}
