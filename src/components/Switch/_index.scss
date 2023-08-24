@@ -13,10 +13,8 @@
     height: var(--switch-height);
     cursor: pointer;
     isolation: isolate;
-
-    input {
-        display: none;
-    }
+    border: none;
+    background-color: transparent;
 
     .switch-track {
         background-color: var(--switch-track-color);

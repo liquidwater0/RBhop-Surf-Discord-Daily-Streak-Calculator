@@ -19,7 +19,7 @@ export default function ToggleButton({ children, className, onClick, ...props }:
     return (
         <>
             <input 
-                className='toggle-button-input'
+                // style={{ display: "none" }}
                 type="checkbox" 
                 ref={inputRef}
                 id={id}
@@ -29,6 +29,7 @@ export default function ToggleButton({ children, className, onClick, ...props }:
             <button
                 className={`button toggle ${className ? className : ""}`}
                 data-toggled={toggled}
+                role='checkbox'
                 aria-controls={id}
                 aria-checked={toggled}
                 onClick={handleClick}
