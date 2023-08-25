@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-    buttonType?: "text" | "toggle"
+    buttonType?: "text"
 }
 
 export default function Button({ children, buttonType, className, ...props }: ButtonProps) {
