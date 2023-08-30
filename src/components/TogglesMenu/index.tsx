@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useCalculations } from '../../context/CalculationsContent';
 import { ArrowDropUp } from '@mui/icons-material';
 import { ToggleButton } from '../Button';
+import Tooltip from '../Tooltip';
 
 export default function TogglesMenu() {
     const { 
@@ -62,16 +63,18 @@ export default function TogglesMenu() {
                 </div>
             </div>
             
-            <button 
-                className='toggles-menu-button'
-                onClick={() => setIsOpen(prev => !prev)}
-            >
-                <ArrowDropUp 
-                    style={{
-                        rotate: `${isOpen ? "180deg" : "0deg"}`
-                    }}
-                />
-            </button>
+            <Tooltip text="Toggles Menu">
+                <button 
+                    className='toggles-menu-button'
+                    onClick={() => setIsOpen(prev => !prev)}
+                >
+                    <ArrowDropUp 
+                        style={{
+                            rotate: `${isOpen ? "180deg" : "0deg"}`
+                        }}
+                    />
+                </button>
+            </Tooltip>
         </div>
     );
 }
