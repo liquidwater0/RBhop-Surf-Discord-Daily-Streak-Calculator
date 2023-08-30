@@ -66,6 +66,7 @@ export default function TogglesMenu() {
             <Tooltip text="Toggles Menu">
                 <button 
                     className='toggles-menu-button'
+                    aria-label='toggles menu button'
                     onClick={() => setIsOpen(prev => !prev)}
                 >
                     <ArrowDropUp 
