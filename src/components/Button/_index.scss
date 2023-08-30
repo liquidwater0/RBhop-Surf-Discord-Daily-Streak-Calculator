@@ -46,4 +46,12 @@
     &[data-toggled="true"] {
         background-color: darken($color-primary, 40%);
     }
+
+    &[data-toggled="false"]:hover {
+        background-color: hsla(0, 0%, 50%, 0.35);
+    }
+
+    &[data-toggled="false"]:active {
+        background-color: hsla(0, 0%, 50%, 0.40);
+    }
 }
