@@ -27,6 +27,18 @@ export function useCalculations() {
     return useContext(CalculationsContext);
 }
 
+function getMultiplierFromStreak(streak: number) {
+    return `x${(1 + (streak / 150)).toFixed(3)}`;
+}
+
+function formatDate({ month, day, year }: { month: number, day: number, year: number }) {
+    const monthString = month.toString();
+    const dayString = day.toString();
+    const yearString = year.toString();
+
+    return `${monthString}/${dayString}/${yearString}`;
+}
+
 export default function CalculationsProvider({ children }: { children: ReactNode }) {
     const [currentStreak, setCurrentStreak] = useState<number>(0);
     const [desiredStreak, setDesiredStreak] = useState<number>(0);
@@ -77,18 +89,6 @@ export default function CalculationsProvider({ children }: { children: ReactNode
         setCurrentStreakMultiplier(getMultiplierFromStreak(currentStreak));
         setDesiredStreakMultiplier(getMultiplierFromStreak(desiredStreak));
         setDesiredDateMultiplier(getMultiplierFromStreak(newDesiredDateStreak));
-    }
-
-    function getMultiplierFromStreak(streak: number) {
-        return `x${(1 + (streak / 150)).toFixed(3)}`;
-    }
-
-    function formatDate({ month, day, year }: { month: number, day: number, year: number }) {
-        const monthString = month.toString();
-        const dayString = day.toString();
-        const yearString = year.toString();
-    
-        return `${monthString}/${dayString}/${yearString}`;
     }
 
     return (
