@@ -38,7 +38,7 @@ export default function ToggleButton({ children, group, className, onToggle, ...
             <Button
                 className={`toggle ${className ? className : ""}`}
                 data-toggled={toggled}
-                role='checkbox'
+                role={group ? "radio" : "checkbox"}
                 aria-controls={id}
                 aria-checked={toggled}
                 onClick={handleClick}
