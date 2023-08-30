@@ -27,20 +27,36 @@ export default function TogglesMenu() {
             >
                 <div>
                     <h2>Current Calculator</h2>
-                    <ToggleButton>
+                    <ToggleButton 
+                        group="calculator"
+                        onToggle={() => setCurrentCalculator("dateToStreak")}
+                        defaultChecked={currentCalculator === "dateToStreak"}
+                    >
                         Date To Streak
                     </ToggleButton>
-                    <ToggleButton>
+                    <ToggleButton 
+                        group="calculator"
+                        onToggle={() => setCurrentCalculator("streakToDate")}
+                        defaultChecked={currentCalculator === "streakToDate"}
+                    >
                         Streak To Date
                     </ToggleButton>
                 </div>
 
                 <div>
                     <h2>Have you done #!daily today?</h2>
-                    <ToggleButton>
+                    <ToggleButton 
+                        group="have"
+                        onToggle={() => setHaveYouDoneDaily(true)}
+                        defaultChecked={haveYouDoneDaily}
+                    >
                         Yes
                     </ToggleButton>
-                    <ToggleButton>
+                    <ToggleButton 
+                        group="have"
+                        onToggle={() => setHaveYouDoneDaily(false)}
+                        defaultChecked={!haveYouDoneDaily}
+                    >
                         No
                     </ToggleButton>
                 </div>
