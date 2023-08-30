@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import { useState, useRef, useId } from 'react';
+import { useEffect, useState, useRef, useId } from 'react';
 import { Button } from "../Button";
 
 interface ToggleButtonProps extends HTMLAttributes<HTMLInputElement> {
@@ -7,11 +7,15 @@ interface ToggleButtonProps extends HTMLAttributes<HTMLInputElement> {
     onToggle?: () => void
 }
 
-//change event not firing when radio gets unchecked in group
 export default function ToggleButton({ children, group, className, onToggle, ...props }: ToggleButtonProps) {
     const [toggled, setToggled] = useState<boolean>(props.defaultChecked || false);
     const inputRef = useRef<HTMLInputElement>(null);
     const id = useId();
+
+    useEffect(() => {
+        if (!inputRef.current) return;
+        setToggled(inputRef.current.checked);
+    }, [inputRef.current?.checked]);
 
     function handleClick() {
         if (!inputRef.current) return;
@@ -19,19 +23,14 @@ export default function ToggleButton({ children, group, className, onToggle, ...
         inputRef.current.click();
     }
 
-    function handleChange(event: any) {
-        setToggled(event.target.checked);
-    }
-
     return (
         <>
             <input 
-                // style={{ display: "none" }}
+                style={{ display: "none" }}
                 type={group ? "radio" : "checkbox"}
                 name={group ? group : ""}
                 ref={inputRef}
                 id={id}
-                onChange={handleChange}
                 { ...props }
             />
 
