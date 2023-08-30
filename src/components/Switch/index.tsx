@@ -19,14 +19,6 @@ export default function Switch({ checkedIcon, uncheckedIcon, className, ...props
 
     return (
         <>
-            <input 
-                style={{ display: "none" }}
-                type="checkbox" 
-                ref={inputRef}
-                id={id}
-                { ...props }
-            />
-
             <button 
                 className={`switch ${className ? className : ""}`}
                 data-checked={checkboxChecked} 
@@ -41,6 +33,14 @@ export default function Switch({ checkedIcon, uncheckedIcon, className, ...props
                     { checkboxChecked ? <>{checkedIcon}</> : <>{uncheckedIcon}</> }
                 </div>
             </button>
+
+            <input 
+                style={{ display: "none" }}
+                type="checkbox" 
+                ref={inputRef}
+                id={id}
+                { ...props }
+            />
         </>
     );
 }

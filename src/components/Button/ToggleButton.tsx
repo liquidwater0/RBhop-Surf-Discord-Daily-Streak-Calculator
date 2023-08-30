@@ -31,16 +31,6 @@ export default function ToggleButton({ children, group, className, onToggle, ...
 
     return (
         <>
-            <input 
-                style={{ display: "none" }}
-                type={group ? "radio" : "checkbox"}
-                name={group ? group : ""}
-                ref={inputRef}
-                id={id}
-                onChange={handleChange}
-                { ...props }
-            />
-
             <Button
                 className={`toggle ${className ? className : ""}`}
                 data-toggled={toggled}
@@ -51,6 +41,16 @@ export default function ToggleButton({ children, group, className, onToggle, ...
             >
                 { children }
             </Button>
+
+            <input 
+                style={{ display: "none" }}
+                type={group ? "radio" : "checkbox"}
+                name={group ? group : ""}
+                ref={inputRef}
+                id={id}
+                onChange={handleChange}
+                { ...props }
+            />
         </>
     );
 }

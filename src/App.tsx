@@ -71,7 +71,7 @@ function App() {
 						<div className="calculations-card">
 							<div className="result">
 								{ desiredDateStreak }
-								<Whatshot className="fire-icon"/>
+								<Whatshot className="fire-icon" />
 							</div>
 							<div className="multiplier">{ desiredDateMultiplier }</div>
 						</div>
@@ -88,7 +88,7 @@ function App() {
 					className="calculate-button"
 					onClick={calculate}
 				>
-					<Calculate/> Calculate
+					<Calculate /> Calculate
 				</Button>
 			</main>
 

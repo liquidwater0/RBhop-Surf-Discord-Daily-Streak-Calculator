@@ -1,8 +1,7 @@
 .tooltip {
     position: relative;
 
-    &::before {
-        content: attr(data-tooltip);
+    .tooltip-text {
         position: absolute;
         pointer-events: none;
         padding: 0.5em 1em;
@@ -10,13 +9,31 @@
         scale: 0;
         transform-origin: bottom;
         border-radius: 0.25em;
-        right: 0;
-        bottom: 3rem;
+        bottom: calc(var(--bottom, 3rem) + 1rem);
         background-color: var(--theme-200);
         transition: scale 250ms;
     }
 
-    &:hover::before {
+    &.left .tooltip-text,
+    &.right .tooltip-text {
+        transform: initial;
+    }
+
+    &.left .tooltip-text {
+        left: 0;
+    }
+
+    &.middle .tooltip-text {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.right .tooltip-text {
+        left: initial;
+        right: 0;
+    }
+
+    &:hover .tooltip-text {
         scale: 1;
     }
 }
