@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { useState, useRef, useId } from 'react';
+import { Button } from "../Button";
 
 interface ToggleButtonProps extends HTMLAttributes<HTMLInputElement> {
     group?: string,
@@ -34,8 +35,8 @@ export default function ToggleButton({ children, group, className, onToggle, ...
                 { ...props }
             />
 
-            <button
-                className={`button toggle ${className ? className : ""}`}
+            <Button
+                className={`toggle ${className ? className : ""}`}
                 data-toggled={toggled}
                 role='checkbox'
                 aria-controls={id}
@@ -43,7 +44,7 @@ export default function ToggleButton({ children, group, className, onToggle, ...
                 onClick={handleClick}
             >
                 { children }
-            </button>
+            </Button>
         </>
     );
 }
