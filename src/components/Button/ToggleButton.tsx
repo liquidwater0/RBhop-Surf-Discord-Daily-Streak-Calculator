@@ -12,15 +12,21 @@ export default function ToggleButton({ children, group, className, onToggle, ...
     const inputRef = useRef<HTMLInputElement>(null);
     const id = useId();
 
-    useEffect(() => {
+    useEffect(updateToggleState, [inputRef.current?.checked]);
+
+    function updateToggleState() {
         if (!inputRef.current) return;
         setToggled(inputRef.current.checked);
-    }, [inputRef.current?.checked]);
+    }
 
     function handleClick() {
         if (!inputRef.current) return;
         if (onToggle) onToggle();
         inputRef.current.click();
+    }
+
+    function handleChange() {
+        updateToggleState();
     }
 
     return (
@@ -31,6 +37,7 @@ export default function ToggleButton({ children, group, className, onToggle, ...
                 name={group ? group : ""}
                 ref={inputRef}
                 id={id}
+                onChange={handleChange}
                 { ...props }
             />
 
