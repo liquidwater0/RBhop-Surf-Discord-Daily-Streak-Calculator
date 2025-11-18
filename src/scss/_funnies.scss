@@ -1,3 +1,7 @@
 html.april-fools {
-    
+    rotate: 0.5deg;
+
+    *, *::before, *::after {
+        text-transform: lowercase !important;
+    }
 }

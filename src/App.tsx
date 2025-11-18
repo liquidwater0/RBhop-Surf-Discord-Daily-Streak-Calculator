@@ -2,6 +2,7 @@ import "./scss/App.scss";
 import { Brightness4, Brightness7, Whatshot, Calculate } from "@mui/icons-material";
 import { useTheme } from "./context/ThemeContext";
 import { useCalculations } from "./context/CalculationsContext";
+import { useFunnies } from "./context/FunniesContext";
 import { Button } from "./components/Button";
 import { Input, DateInput } from "./components/Input";
 import Tooltip from "./components/Tooltip";
@@ -24,11 +25,14 @@ function App() {
 		setDesiredStreak,
 		setDesiredDate
 	} = useCalculations();
+	const { isAprilFirst, getRandomThing } = useFunnies();
 
 	return (
 		<>
 			<header className="header">
-				<h1>Daily Streak Calculator</h1>
+				<h1 title={isAprilFirst ? "( ͡° ͜ʖ ͡°)" : ""}>
+					Daily Streak Calculator
+				</h1>
 			</header>
 
 			<main className="main">
@@ -38,7 +42,10 @@ function App() {
 
 						<div className="calculations-card">
 							<div className="result">{ startDate }</div>
-							<div className="multiplier">{ currentStreakMultiplier }</div>
+							<div className="multiplier">
+								{ currentStreakMultiplier }
+								{ isAprilFirst && " " + getRandomThing() }
+							</div>
 						</div>
 
 						<Input
@@ -54,7 +61,10 @@ function App() {
 
 						<div className="calculations-card">
 							<div className="result">{ desiredStreakDate }</div>
-							<div className="multiplier">{ desiredStreakMulitplier }</div>
+							<div className="multiplier">
+								{ desiredStreakMulitplier }
+								{ isAprilFirst && " " + getRandomThing() }
+							</div>
 						</div>
 
 						<Input
@@ -73,7 +83,10 @@ function App() {
 								{ desiredDateStreak }
 								<Whatshot className="fire-icon" />
 							</div>
-							<div className="multiplier">{ desiredDateMultiplier }</div>
+							<div className="multiplier">
+								{ desiredDateMultiplier }
+								{ isAprilFirst && " " + getRandomThing() }
+							</div>
 						</div>
 
 						<DateInput 
