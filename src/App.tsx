@@ -1,7 +1,7 @@
 import "./scss/App.scss";
 import { Brightness4, Brightness7, Whatshot, Calculate } from "@mui/icons-material";
 import { useTheme } from "./context/ThemeContext";
-import { useCalculations } from "./context/CalculationsContent";
+import { useCalculations } from "./context/CalculationsContext";
 import { Button } from "./components/Button";
 import { Input, DateInput } from "./components/Input";
 import Tooltip from "./components/Tooltip";

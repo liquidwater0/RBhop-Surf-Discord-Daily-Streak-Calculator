@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useCalculations } from '../../context/CalculationsContent';
+import { useCalculations } from '../../context/CalculationsContext';
 import { ArrowDropUp } from '@mui/icons-material';
 import { ToggleButton } from '../Button';
 import Tooltip from '../Tooltip';
